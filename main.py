@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.user import router as user_router
+from api import user
 
 app = FastAPI()
 
@@ -9,4 +9,4 @@ async def root():
     return {"message": "Welcome to fastAlchemy API"}
 
 
-app.include_router(user_router)
+app.include_router(user.router)
