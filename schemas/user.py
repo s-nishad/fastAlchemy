@@ -16,11 +16,12 @@ class UserCreate(UserBase):
 
 
 class UserUpdate(UserBase):
-    password: Optional[str] = None
+    pass
 
 
 class UserInDBBase(UserBase):
     id: int
+    guid: str
 
     class Config:
         orm_mode: True
