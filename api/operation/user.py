@@ -2,6 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from db.models import User
 from schemas.user import UserCreate, UserUpdate
+from core.security import get_password_hash
 
 
 async def get_user(db: AsyncSession, user_guid: str):
@@ -25,7 +26,7 @@ async def create_user(db: AsyncSession, user: UserCreate):
         last_name=user.last_name,
         username=user.username,
         email=user.email,
-        password=user.password,  # You should hash the password before storing it
+        password=get_password_hash(user.password),  # You should hash the password before storing it
         is_admin=user.is_admin,
         is_superuser=user.is_superuser,
     )
