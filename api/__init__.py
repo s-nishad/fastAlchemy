@@ -1,1 +1,1 @@
-__all__ = ['auth', 'docs']
+__all__ = ['user']
