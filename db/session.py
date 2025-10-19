@@ -1,15 +1,12 @@
-from contextlib import contextmanager
-import typing
-from sqlalchemy.orm import sessionmaker
+from typing import Generator
+from sqlalchemy.orm import sessionmaker, Session
 from db.engine import engine
-from sqlalchemy.orm import Session
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, future=True)
 
 
-@contextmanager
-def get_db() -> typing.Generator[Session, None, None]:
-    db = Session(autocommit=False, autoflush=False, bind=engine, future=True)
+def get_db() -> Generator[Session, None, None]:
+    db = SessionLocal()
     try:
         yield db
     finally:

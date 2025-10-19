@@ -30,3 +30,10 @@ archive.zip
 .DS_Store
 
 *.db
+
+\.venv
+
+.env/
+.env.*
+static/uploads/*
+\.env
