@@ -1,3 +1,0 @@
-# To create an admin user cmd:
-python -m management.commands user create-admin
-
